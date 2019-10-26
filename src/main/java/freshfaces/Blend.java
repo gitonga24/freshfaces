@@ -43,7 +43,9 @@ public class Blend {
 		return sku;
 	}
 
-	
+	public Blend() {
+		
+	}
 
 	public Blend(String blendName, String description, String ingredients, String sku, Product product) {
 		this.blendName = blendName;

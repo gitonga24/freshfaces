@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${blend.blendName}"></title>
+</head>
+
+<body>
+
+    <header>
+        <h3 th:text="${blend.blendName}"></h3>
+    </header>
+
+    <main>
+    	
+    	<ul>
+    		<li th:text = "${blend.description}"></li>
+    		<li th:text = "${blend.ingredients}"></li>
+    		<li th:text = "${blend.sku}"></li>
+    	</ul>
+    
+    </main>
+	
+	<h4><a href="/allProducts"> Back to Products</a></h4>
+</body>
+    <footer>
+        <small>Copyright South Harmon Institute of Technology 2019</small>
+    </footer>
+
+
+
+</html>

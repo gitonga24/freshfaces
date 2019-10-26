@@ -14,6 +14,7 @@ public class Product {
 	@Id
 	@GeneratedValue 
 	private Long id; 
+	
 	private String productName;
 	
 	
@@ -26,6 +27,9 @@ public class Product {
 		return productName;
 	}
 
+	protected Product() {
+		
+	}
 
 	public Product(String productName) {
 		this.productName = productName;
