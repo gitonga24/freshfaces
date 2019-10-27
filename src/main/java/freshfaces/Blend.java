@@ -47,6 +47,13 @@ public class Blend {
 		
 	}
 
+	
+	
+	@Override
+	public String toString() {
+		return "Blend [id=" + id + ", blendName=" + blendName + ", description=" + description + ", ingredients="
+				+ ingredients + ", sku=" + sku + ", product=" + product + "]";
+	}
 	public Blend(String blendName, String description, String ingredients, String sku, Product product) {
 		this.blendName = blendName;
 		this.description = description;

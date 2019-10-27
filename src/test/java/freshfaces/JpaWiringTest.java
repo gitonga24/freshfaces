@@ -39,7 +39,7 @@ public class JpaWiringTest {
 	
 	
 	@Test
-	public void shouldAddBlendsToProduct() {
+	public void productShouldHaveACollectionOfAllBlends () {
 	
 		Product spaButter = new Product ("Spa Butter");
 		spaButter = productRepo.save(spaButter);
@@ -58,13 +58,14 @@ public class JpaWiringTest {
 		entityManager.clear();		
 		
 		Product retrievedProduct = productRepo.findById(spaButter.getId()).get();
-		Blend retrievedBlend = blendRepo.findById(lemon.getId()).get();
-		Blend retrievedBlend2 = blendRepo.findById(orange.getId()).get();
+		assertThat(retrievedProduct.getBlends(), containsInAnyOrder(lemon, orange, chocolate));
 		
-		assertThat(spaButter.getBlends(), containsInAnyOrder(lemon, orange));
-		
-		
-		
+//		
+//		Blend retrievedBlend = blendRepo.findById(lemon.getId()).get();
+//		Blend retrievedBlend2 = blendRepo.findById(orange.getId()).get();
+//		
+//		assertThat(retrievedProduct.getBlends(), containsInAnyOrder(lemon, orange));		
+//		
 //		spaButter = productRepo.findById(spaButter.getId()).get();
 //		Long underTestId = spaButter.getId();
 //		assertThat(spaButter.getId(), is(underTestId));
@@ -72,13 +73,26 @@ public class JpaWiringTest {
 	}
 
 	
-//	@Test
-	public void productShouldHaveACollectionOfAllBlends() {
-		
+	@Test
+	public void shouldAddandRetrieveBlendById() {
 		Product spaButter = new Product ("Spa Butter");
+		spaButter = productRepo.save(spaButter);
 		
+		Blend lemon = new Blend("Lemon", "description one", "ingridient 1", "sku # 1", spaButter);
+		lemon = blendRepo.save(lemon);
 		
+		Blend orange = new Blend("orange", "description two", "ingridient 2", "sku # 2", spaButter);
+		orange = blendRepo.save(orange);
 		
+		Blend underTest = blendRepo.findById(lemon.getId()).get();
+		
+		assertThat(underTest.getId(), is(lemon.getId()));
+		
+//		spaButter = productRepo.findById(spaButter.getId()).get();	
+//		Long underTestId = spaButter.getId();
+//		assertThat(spaButter.getId(), is(underTestId));
+//		assertThat(spaButter.getProductName(), is("spaButter"));
+				
 	}
 	
 }

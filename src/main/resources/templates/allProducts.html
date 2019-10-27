@@ -23,7 +23,7 @@
 
 
         <ul>
-            <li th:each="Product: ${allProducts}">
+            <li th:each="product: ${allProducts}">
                 <a th:href="@{/product(id=${product.id})}" th:text="${product.productName}"></a>
             </li>
         </ul>
