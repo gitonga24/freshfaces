@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.Arrays;
 
@@ -42,6 +43,9 @@ public class ProductControllerMockMvcTest {
 	@Mock
 	private Blend lemon;
 	
+	@Mock
+	private Blend orange;
+	
 	
 	@Test
 	public void shouldRouteToSingleProductView() throws Exception {
@@ -67,8 +71,14 @@ public class ProductControllerMockMvcTest {
 	public void shouldAddSingleBlendToBlendModel() throws Exception {
 		when(blendRepo.findById(2L)).thenReturn(Optional.of(lemon));
 		
-		mvc.perform(get("/blend?id=2")).andExpect(model().attribute("blend", is(lemon)));
-		
+		mvc.perform(get("/blend?id=2")).andExpect(model().attribute("blend", is(lemon)));	
 	}
 	
+	//@Test
+	public void shouldAddBlendsToTheProductModel() throws Exception {
+		Product oneProduct = (Product) Arrays.asList(lemon, orange);
+		when(oneProduct.getBlends()).thenReturn((List<Blend>) oneProduct);
+		mvc.perform(get("/product")).andExpect(model().attribute("product", is(oneProduct)));
+		
+	}
 }

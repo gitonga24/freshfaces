@@ -21,6 +21,8 @@ public class ProductPopulator implements CommandLineRunner {
 		Product spaButter = new Product("Spa Butter");
 		spaButter = productRepo.save(spaButter);
 		
+		Product sugarScrub = new Product ("Sugar Scrub");
+		sugarScrub = productRepo.save(sugarScrub);
 		
 		Blend lemon = new Blend("Lemon", "description one", "ingridient 1", "sku # 1", spaButter);
 		Blend orange = new Blend("orange", "description two", "ingridient 2", "sku # 2", spaButter);

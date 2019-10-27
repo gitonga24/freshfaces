@@ -13,7 +13,6 @@
 
     <main>
 
-        <h4>test for h4 ss</h4>
 
         <ul>
             <li th:each="product: ${allProducts}">
@@ -22,11 +21,6 @@
         </ul>
 
 
-        <ul>
-            <li th:each="product: ${allProducts}">
-                <a th:href="@{/product(id=${product.id})}" th:text="${product.productName}"></a>
-            </li>
-        </ul>
 
         <h4> <a href="/allProducts"> List of products.</a></h4>
 
@@ -36,7 +30,7 @@
     </main>
 
     <footer>
-        <small>Copyright South Harmon Institute of Technology 2018</small>
+        <small>Fresh Faces Beauty LLC</small>
     </footer>
 
 </body>

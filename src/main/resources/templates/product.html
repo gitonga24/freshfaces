@@ -12,18 +12,20 @@
     </header>
 
     <main>
-
+    
         <ul>
 
-            <li></li>
+             <li th:each="blend: ${blends}">
+                <a th:href="@{/blend(id=${blend.id})}" th:text="${blend.blendName}"></a>
+            </li>
         </ul>
 
     </main>
 
-    <h4><a href="/products"> Back to Products</a></h4>
+    <h4><a href="/allProducts"> Back to Products</a></h4>
 </body>
 <footer>
-    <small>Copyright South Harmon Institute of Technology 2019</small>
+    <small>Fresh Faces Beauty LLC</small>
 </footer>
 
 

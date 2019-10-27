@@ -50,11 +50,10 @@ public class ProductController {
 		
 	}
 
-//	@RequestMapping("/blends")
-//	public String findAllBlends(Model model) {
-//		model.addAttribute("blends", blendRepo.findAll());
-//		return("blends");
-//		
-//	}
+	@RequestMapping("/blends")
+	public String findAllBlends(Model model) {
+		model.addAttribute("blends", blendRepo.findAll());
+		return("blends");	
+	}
 
 }
