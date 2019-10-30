@@ -33,11 +33,6 @@ public class JpaWiringTest {
 	@Resource
 	TestEntityManager entityManager;
 
-	
-
-	
-	
-	
 	@Test
 	public void productShouldHaveACollectionOfAllBlends () {
 	

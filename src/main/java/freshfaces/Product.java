@@ -70,16 +70,25 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
-		if (blends == null) {
-			if (other.blends != null)
-				return false;
-		} else if (!blends.equals(other.blends))
-			return false;
+		
+		
+//		if (blends == null) {
+//			if (other.blends != null)
+//				return false;
+//		} else if (!blends.equals(other.blends))
+//			return false;
+		
+		
+		
+		
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		
+		
+		
 		if (productName == null) {
 			if (other.productName != null)
 				return false;
