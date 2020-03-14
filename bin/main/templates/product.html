@@ -15,12 +15,28 @@
     
         <ul>
 
-             <li th:each="blend: ${blends}">
+             <li th:each="blend: ${product.blends}">
                 <a th:href="@{/blend(id=${blend.id})}" th:text="${blend.blendName}"></a>
             </li>
         </ul>
 
     </main>
+
+
+	   <form method="post">
+
+   		<div>
+   		<label> Enter Product Name: </label>
+   		<input type="text" name ="productName" />
+   		</div>
+   		   	
+   		<div>
+   		<button th:formaction="@{add-product}"> Add Product</button>
+   		</div>
+   </form>
+
+
+
 
     <h4><a href="/allProducts"> Back to Products</a></h4>
 </body>

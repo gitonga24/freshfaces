@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>A List of All Available Products</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>A List of All Products</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li th:each="product: ${Products}">
+                <a th:href="@{/product(id=${product.id})}" th:text="${product.productName}"></a>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <small>Copyright South Harmon Institute of Technology 2018</small>
+    </footer>
+
+</body>
+
+</html>

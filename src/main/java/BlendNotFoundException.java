@@ -1,4 +1,3 @@
-package freshfaces;
 
 
 import org.springframework.http.HttpStatus;

@@ -73,13 +73,47 @@ public class ProductControllerTest {
 	}
 	
 	@Test
-	public void shouldAddProductsToModel() {
+	public void shouldFindAllProductsToModel() {
 		Collection<Product> allProducts = Arrays.asList(spaButter, sugarScrub);
 		when(productRepo.findAll()).thenReturn(allProducts);
 		
-		underTest.findAllProducts(model);
+		underTest.findallProducts(model);
 		verify(model).addAttribute("allProducts", allProducts);
 	}
 	
+	@Test
+	public void shouldAddProductToProductsModel() {		
+		Product newProduct = new Product ("saltScrub");
+		underTest.addProduct("saltScrub");
+		when(productRepo.save(newProduct)).thenReturn(spaButter);		
+	}
+	
+//	@Test
+	public void shouldAddBlendToProductModel() {
+//public Blend(String blendName, String description, String ingredients, String sku, Product product)
+		String newProductName = "spa butter";
+		spaButter = productRepo.findByProductName(newProductName);
+		String blendName = "blend name";
+		String description = "description";
+		String ingredients ="ingrident";
+		String sku = "sku";
+		
+	Blend newBlend = new Blend (blendName, description, ingredients, sku, spaButter);
+	underTest.addBlend(spaButter.getProductName(), blendName, description, ingredients, sku);
+	when(blendRepo.save(newBlend)). thenReturn(newBlend);		
+	}
+	
+	//@Test
+	public void shouldBeAbleToDeleteProductToModel() {
+		
+		spaButter = new Product ("Spa Butter");
+		productRepo.save(spaButter);
+		String productNameToDelete = spaButter.getProductName();
+		
+		underTest.deleteProductByName(productNameToDelete);
+		verify(productRepo).delete(spaButter);
+	
+		
+	}
 	
 }

@@ -43,7 +43,7 @@ public class ProductController {
 	}
 
 	@RequestMapping("/allProducts")
-	public String findAllProducts(Model model) {
+	public String findallProducts(Model model) {
 		model.addAttribute("allProducts", productRepo.findAll());
 		return "allProducts";
 		
@@ -55,5 +55,48 @@ public class ProductController {
 		model.addAttribute("blends", blendRepo.findAll());
 		return("blends");	
 	}
+
+	@RequestMapping("/add-product")
+	public String addProduct(String productName) {
+		
+		Product newProduct = productRepo.findByProductName(productName);
+		if(newProduct==null) {
+			newProduct = new Product (productName);
+			productRepo.save(newProduct);
+		}
+		return "redirect:/allProducts";
+		
+	}
+
+	@RequestMapping("/add-blend")
+	public String addBlend(String productNameForBlend, String blendName, String description, String ingredients, String sku) {
+		
+		Product newProduct = productRepo.findByProductName(productNameForBlend);
+		
+		if (newProduct==null) {
+			newProduct = new Product(productNameForBlend);
+			productRepo.save(newProduct);
+			Blend blend = new Blend(blendName, description, ingredients, sku, newProduct);
+			blendRepo.save(blend);
+		}
+		else {
+			Blend blend = new Blend(blendName, description, ingredients, sku, newProduct);
+			blendRepo.save(blend);
+		}
+			
+		return "redirect:/allProducts";
+	}
+
+	@RequestMapping("/delete-product")
+	public String deleteProductByName (String productNameToDelete) {
+		if(productRepo.findByProductName(productNameToDelete) != null){
+			Product productToDelete = productRepo.findByProductName(productNameToDelete);
+			productRepo.delete(productToDelete);
+		}
+		
+		return "redirect:/allProducts";
+		
+	}
+	
 
 }

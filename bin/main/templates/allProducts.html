@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>A List of All Available Products</title>
+    <title>Home - A List of All Available Products</title>
 </head>
 
 <body>
 
     <header>
-        <h3>A List of All Products</h3>
+        <h3>A List of All Products - Home</h3>
     </header>
 
     <main>
@@ -29,6 +29,70 @@
 
     </main>
 
+   <form method="post">
+   		
+   				<p>
+		Additional option to add Blend to the database:
+		</p>
+   		
+   		<div>
+   		<label>Enter Blend Name: </label>
+   		<input type="text" name ="blendName" />
+   		</div>
+   		
+   		<div>
+   		<label>Enter Blend Description: </label>
+   		<input type="text" name ="description" />
+   		</div>
+   		
+   		<div>
+   		<label>Enter Blend ingredients: </label>
+   		<input type="text" name ="ingredients" />
+   		</div>
+   		
+   		<div>
+   		<label>Enter Blend sku: </label>
+   		<input type="text" name ="sku" />
+   		</div>
+   		
+   		<div>
+   		<label>Enter Product Name: </label>
+   		<input type="text" name ="productNameForBlend" />
+   		</div>
+   		
+   		<div>
+   		<button th:formaction="@{add-blend}"> Add Blend</button>
+   		</div>
+   		
+   		 
+   </form>
+   
+   	   <form method="post">
+
+   		<div>
+   		<label> Enter Product Name To Delete: </label>
+   		<input type="text" name ="productNameToDelete" />
+   		</div>
+   		   	
+   		<div>
+   		<button th:formaction="@{delete-product}"> Delete Product</button>
+   		</div>
+
+      </form>
+   
+   	   <form method="post">
+
+   		<div>
+   		<label> Enter Product Name: </label>
+   		<input type="text" name ="productName" />
+   		</div>
+   		   	
+   		<div>
+   		<button th:formaction="@{add-product}"> Add Product</button>
+   		</div>
+   </form>
+   
+   
     <footer>
         <small>Fresh Faces Beauty LLC</small>
     </footer>
