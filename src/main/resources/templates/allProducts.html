@@ -1,100 +1,121 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/static/style.css}">
     <title>Home - A List of All Available Products</title>
 </head>
 
 <body>
 
     <header>
-        <h3>A List of All Products - Home</h3>
+        <h3> Inventory At A Glancee</h3>
     </header>
-
     <main>
 
+        <section id="products">
 
-        <ul>
-            <li th:each="product: ${allProducts}">
-                <a th:href="@{/product(id=${product.id})}" th:text="${product.productName}"></a>
-            </li>
-        </ul>
+            <ul>
+                <li th:each="product: ${allProducts}">
+                    <a th:href="@{/product(id=${product.id})}" th:text="${product.productName}"></a>
+                </li>
+            </ul>
 
+        </section>
 
-
-        <h4> <a href="/allProducts"> List of products.</a></h4>
 
 
 
 
     </main>
 
-   <form method="post">
-   		
-   				<p>
-		Additional option to add Blend to the database:
-		</p>
-   		
-   		<div>
-   		<label>Enter Blend Name: </label>
-   		<input type="text" name ="blendName" />
-   		</div>
-   		
-   		<div>
-   		<label>Enter Blend Description: </label>
-   		<input type="text" name ="description" />
-   		</div>
-   		
-   		<div>
-   		<label>Enter Blend ingredients: </label>
-   		<input type="text" name ="ingredients" />
-   		</div>
-   		
-   		<div>
-   		<label>Enter Blend sku: </label>
-   		<input type="text" name ="sku" />
-   		</div>
-   		
-   		<div>
-   		<label>Enter Product Name: </label>
-   		<input type="text" name ="productNameForBlend" />
-   		</div>
-   		
-   		<div>
-   		<button th:formaction="@{add-blend}"> Add Blend</button>
-   		</div>
-   		
-   		 
-   </form>
-   
-   	   <form method="post">
+    <h3> Inventory Maintenance (Add/Remove Inventory)</h3>
 
-   		<div>
-   		<label> Enter Product Name To Delete: </label>
-   		<input type="text" name ="productNameToDelete" />
-   		</div>
-   		   	
-   		<div>
-   		<button th:formaction="@{delete-product}"> Delete Product</button>
-   		</div>
+    <form method="post">
+        <section id="add-product-name">
+            <div>
+                <label> Enter Product Name: </label>
+                <input type="text" name="productName" />
+            </div>
 
-      </form>
-   
-   	   <form method="post">
+            <div>
+                <button th:formaction="@{add-product}"> Add Product</button>
+            </div>
+        </section>
+    </form>
 
-   		<div>
-   		<label> Enter Product Name: </label>
-   		<input type="text" name ="productName" />
-   		</div>
-   		   	
-   		<div>
-   		<button th:formaction="@{add-product}"> Add Product</button>
-   		</div>
-   </form>
-   
-   
+
+    <form method="post">
+
+        <section id="add-product">
+
+            <div>
+                <label>Enter Product Name: </label>
+                <input type="text" name="productNameForBlend" />
+            </div>
+
+            <div>
+                <label>Enter Blend Name: </label>
+                <input type="text" name="blendName" />
+            </div>
+
+            <div>
+                <label>Enter Blend Description: </label>
+                <input type="text" name="description" />
+            </div>
+
+            <div>
+                <label>Enter Blend ingredients: </label>
+                <input type="text" name="ingredients" />
+            </div>
+
+            <div>
+                <label>Enter Blend sku: </label>
+                <input type="text" name="sku" />
+            </div>
+
+            <div>
+                <button th:formaction="@{add-blend}"> Add Blend</button>
+            </div>
+        </section>
+
+    </form>
+
+
+
+
+
+
+    <form method="post">
+
+        <section id="delete-product">
+            <div>
+                <label> Enter Product Name To Delete: </label>
+                <input type="text" name="productNameToDelete" />
+            </div>
+
+            <div>
+                <button th:formaction="@{delete-product}"> Delete Product</button>
+            </div>
+        </section>
+    </form>
+
+
+
+
+    <nav>Fresh Faces Beauty LLC </nav>
+
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+
+    <h4> <a href="/allProducts"> Product List </a></h4>
+
     <footer>
-        <small>Fresh Faces Beauty LLC</small>
+        <small> &copy; Fresh Faces Beauty LLC</small>
     </footer>
 
 </body>
