@@ -37,6 +37,39 @@
 
 
 
+    <form method="post">
+
+        <section id="delete-product">
+            <div>
+                <label> Enter Product Name To Delete: </label>
+                <input type="text" name="productNameToDelete" />
+            </div>
+
+            <div>
+                <button th:formaction="@{delete-product}"> Delete Product</button>
+            </div>
+        </section>
+    </form>
+
+
+    <form method="post">
+
+        <section id="delete-blend">
+            <div>
+                <label> Enter Blend Name To Delete: </label>
+                <input type="text" name="blendNameToDelete" />
+            </div>
+
+            <div>
+                <button th:formaction="@{delete-blend}"> Delete Blend</button>
+            </div>
+        </section>
+    </form>
+
+
+
+
+
 
     <h4><a href="/allProducts"> Back to Products</a></h4>
 </body>

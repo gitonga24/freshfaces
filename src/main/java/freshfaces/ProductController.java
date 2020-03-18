@@ -98,5 +98,19 @@ public class ProductController {
 		
 	}
 	
+	@RequestMapping ("/delete-blend")
+	public String deleteBlend (String blendNameToDelete) {
+		if(blendRepo.findByBlendName(blendNameToDelete) != null) {
+			Blend blendToDelete = blendRepo.findByBlendName(blendNameToDelete);
+			blendRepo.delete(blendToDelete);
+		}
+		
+		return "redirect:/allProducts";
+
+	}
+
+	
+	
+	
 
 }
